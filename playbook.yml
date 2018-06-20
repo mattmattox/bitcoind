@@ -13,13 +13,8 @@
       name: docker-py
       state: latest
 
-  - name: build the docker image for the bitcoin daemon
-    docker_image:
-       path: /etc/ansible
-       name: bitcoind
-
   - name: run the container we just built
     docker_container:
         name: bitcoind
-        image: bitcoind
+        image: azamatms/bitcoind
         state: started
