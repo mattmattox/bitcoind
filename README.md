@@ -157,9 +157,3 @@ The statefulset only has one replica. You can scale it using the command below, 
 $ kubectl scale sts bitcoind --replicas 3
 statefulset.apps "bitcoind" scaled
 ```
-
-# Travis Testing
-
-There is a `.travis.yml` file available, but be warned; Travis CI may flag your account for "potential abuse"
-
-![Image of Banned Travis CI Account](https://github.com/mazamats/bitcoind/blob/master/img/banned_account.png?raw=true)

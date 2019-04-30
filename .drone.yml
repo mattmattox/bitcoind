@@ -1,0 +1,15 @@
+kind: pipeline
+name: default
+steps:
+- name: frontend
+  image: docker
+  environment:
+    DOCKER_USERNAME:
+      from_secret: DOCKER_USERNAME 
+    DOCKER_PASSWORD:
+      from_secret: DOCKER_PASSWORD 
+  commands:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker build -t $DOCKER_USERNAME/bitcoind .
+  - docker images
+  - docker push $DOCKER_USERNAME/bitcoind
